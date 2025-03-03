@@ -6,7 +6,7 @@ import Foundation from './pages/Foundation';
 import Target from './pages/Target';
 import Home from './pages/Home';
 import Quiz from './pages/Quiz';
-import Achievements from './pages/Achievements';
+import Achievements from './components/Achievements';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './App.css';
@@ -18,6 +18,7 @@ const App = () => {
         <Navbar />
         <main className="main-content container py-4">
           <Routes>
+          <Route path="/" element={<Home />} />
             <Route path="/Home" element={<Home />} />
             <Route path="/foundation" element={<Foundation />} />
             <Route path="/target" element={<Target />} />

@@ -30,7 +30,7 @@ const Navbar = () => {
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link className="nav-link px-3" to="/">
+              <Link className="nav-link px-3" to="/Home">
                 <i className="bi bi-house-door me-1"></i>Home
               </Link>
             </li>

@@ -1,5 +1,6 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
-import Achievement from '../components/Achievements';
+import Achievements from '../components/Achievements';
 
 const Home = () => {
   const sections = [
