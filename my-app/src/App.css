@@ -173,3 +173,30 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+/* Target Page Styles */
+.target-page .nav-pills .nav-link {
+  color: #333;
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin: 0 5px;
+  transition: all 0.3s ease;
+}
+
+.target-page .nav-pills .nav-link.active {
+  background-color: #007bff;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.target-page .card {
+  transition: transform 0.3s ease;
+}
+
+.target-page .card:hover {
+  transform: translateY(-5px);
+}
+
+.target-page .table th {
+  background-color: #f8f9fa;
+}
