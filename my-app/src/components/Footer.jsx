@@ -29,7 +29,7 @@ const Footer = () => {
               <a href="https://wa.me/+91 7667643486" className="me-3 text-light" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faWhatsapp} size="lg" />
               </a>
-              <a href="https://facebook.com/your-username" className="me-3 text-light" target="_blank" rel="noopener noreferrer">
+              <a href="" className="me-3 text-light" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faFacebookF} size="lg" />
               </a>
 
