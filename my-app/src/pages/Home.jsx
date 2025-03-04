@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { TypeAnimation } from 'react-type-animation';
 import Achievements from '../components/Achievements';
 
 const Home = () => {
@@ -7,21 +9,21 @@ const Home = () => {
     {
       title: "Foundation Course",
       description: "Start your journey with our comprehensive foundation program",
-      image: "/src/assets/images/foundation.jpg",
+      image: "/download.png",
       link: "/foundation",
       color: "primary"
     },
     {
       title: "Target Batch",
       description: "Specialized coaching for advanced learners",
-      image: "/src/assets/images/target.jpg",
+      image: "/images/target.jpg",
       link: "/target",
       color: "success"
     },
     {
       title: "Islamic Quiz",
       description: "Test your knowledge with interactive quizzes",
-      image: "/src/assets/images/quiz.jpg",
+      image: "/images/quiz.jpg",
       link: "/quiz",
       color: "warning"
     }
@@ -29,17 +31,48 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      {/* Hero Section */}
       <section className="hero bg-primary text-white py-5 mb-5">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-md-6">
-              <h1 className="display-4">Welcome to Kalam Academy</h1>
-              <p className="lead">Empowering minds through quality education and Islamic knowledge</p>
-              <Link to="/contact" className="btn btn-light btn-lg">Get Started</Link>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className="text-center text-md-start"
+              >
+                <h1 className="display-4 fw-bold mb-4">
+                  Welcome to{' '}
+                  <TypeAnimation
+                    sequence={[
+                      'Kalam Academy',
+                      1000,
+                      'Excellence in Education',
+                      1000,
+                      'Islamic Values',
+                      1000,
+                    ]}
+                    wrapper="span"
+                    speed={50}
+                    repeat={Infinity}
+                    className="text-warning"
+                  />
+                </h1>
+                <p className="lead">Empowering minds through quality education and Islamic knowledge</p>
+                <Link to="/foundation" className="btn btn-light btn-lg mt-3">
+                  Get Started
+                </Link>
+              </motion.div>
             </div>
             <div className="col-md-6">
-              {/* Add hero image here if needed */}
+              <motion.img
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                src="/images/hero-image.jpg"
+                alt="Education"
+                className="img-fluid rounded shadow"
+              />
             </div>
           </div>
         </div>

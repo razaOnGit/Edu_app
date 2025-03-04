@@ -9,11 +9,12 @@ const Navbar = () => {
       <div className="container">
         <Link className="navbar-brand d-flex align-items-center" to="/">
           <img
-            src="/download.png"
+            src="/logo.jpg"
             alt=""
             height="40"
-            className="me-2"
+            className="me-2 logo"
           />
+
           <span className="fw-bold fs-4">Kalam Academy</span>
         </Link>
         <button
