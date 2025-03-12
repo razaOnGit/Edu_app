@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Achievements = () => {
   const achievements = [
     { number: "1000+", title: "Students Enrolled" },
-    { number: "50+", title: "Expert Teachers" },
+    { number: "10+", title: "Expert Teachers" },
     { number: "100%", title: "Success Rate" },
     { number: "20+", title: "Awards Won" }
   ];

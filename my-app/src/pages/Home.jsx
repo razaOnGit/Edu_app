@@ -3,27 +3,28 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import Achievements from '../components/Achievements';
+import CarouselSlider from '../components/CarouselSlider';
 
 const Home = () => {
   const sections = [
     {
       title: "Foundation Course",
       description: "Start your journey with our comprehensive foundation program",
-      image: "/download.png",
+      image: "/foundation.webp",
       link: "/foundation",
       color: "primary"
     },
     {
       title: "Target Batch",
       description: "Specialized coaching for advanced learners",
-      image: "/images/target.jpg",
+      image: "/target.webp",
       link: "/target",
       color: "success"
     },
     {
       title: "Islamic Quiz",
       description: "Test your knowledge with interactive quizzes",
-      image: "/images/quiz.jpg",
+      image: "/quiz.webp",
       link: "/quiz",
       color: "warning"
     }
@@ -31,6 +32,8 @@ const Home = () => {
 
   return (
     <div className="home-container">
+      <CarouselSlider />
+      
       <section className="hero bg-primary text-white py-5 mb-5">
         <div className="container">
           <div className="row align-items-center">
@@ -69,7 +72,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                src="/images/hero-image.jpg"
+                src="/.jpg"
                 alt="Education"
                 className="img-fluid rounded shadow"
               />
@@ -86,13 +89,14 @@ const Home = () => {
             {sections.map((section, index) => (
               <div key={index} className="col-md-4 mb-4">
                 <div className="card h-100 shadow-sm hover-card">
-                  <img 
-                    src={section.image} 
-                    className="card-img-top" 
-                    alt={section.title}
-                    style={{ height: '200px', objectFit: 'cover' }}
-                  />
-                  <div className="card-body">
+                  <div className="card-img-wrapper">
+                    <img 
+                      src={section.image} 
+                      className="card-img-top" 
+                      alt={section.title}
+                    />
+                  </div>
+                  <div className="card-body d-flex flex-column">
                     <h5 className="card-title">{section.title}</h5>
                     <p className="card-text">{section.description}</p>
                     <Link 
@@ -107,6 +111,33 @@ const Home = () => {
             ))}
           </div>
         </div>
+        <style jsx>{`
+          .card-img-wrapper {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            background:rgb(104, 216, 66);
+          }
+          
+          .card-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+          
+          .hover-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+          }
+          
+          .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+          }
+        `}</style>
       </section>
 
       {/* Achievement Section */}
