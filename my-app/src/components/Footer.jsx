@@ -54,21 +54,21 @@ const Footer = () => {
               <li className="mb-2">
                 <FontAwesomeIcon icon={faEnvelope} className="me-2" />
                 <a href="mailto:kmdraza47@gmail.com" className="text-light text-decoration-none">
-                  kmdraza47@gmail.com
+                  kumailakhtar0786@gmail.com
                 </a>
                 </li>
-              <li className="mb-2">
+              {/* <li className="mb-2">
               <FontAwesomeIcon icon={faGlobe} size="lg" />
               <a href="https://portfolio-mdraza.vercel.app/" className="me-3 text-light" target="_blank" rel="noopener noreferrer">
                
                 Portfolio
               </a>
-              </li>
+              </li> */}
               
               <li className="mb-2">
                 <FontAwesomeIcon icon={faPhone} className="me-2" />
                 <a href="tel:+1234567890" className="text-light text-decoration-none">
-                  +1 234 567 890
+                  +91 7667643486
                 </a>
               </li>
               <li>
@@ -85,16 +85,64 @@ const Footer = () => {
           <div className="col-md-12 text-center">
             <p className="mb-0 text-light-50">
               © {new Date().getFullYear()} Kalam Academy. All rights reserved. | Designed by{' '}
-              <a href="https://portfolio-mdraza.vercel.app/" 
+              
+              <a 
+                href="https://portfolio-mdraza.vercel.app/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-light text-decoration-none">
-                Md.Raza Khan
+                className="portfolio-link text-light d-inline-flex align-items-center"
+              >
+               👉 Md.Raza Khan ▶️
+                <FontAwesomeIcon icon={faGlobe} className="ms-2 globe-icon" />
               </a>
+
+            
             </p>
           </div>
         </div>
       </div>
+      <style jsx>{`
+        .portfolio-link {
+          transition: all 0.3s ease;
+          padding: 8px 16px;
+          border-radius: 12px;
+          position: relative;
+          background: linear-gradient(145deg, #6f42c1, #6610f2);
+          box-shadow: 3px 3px 10px rgba(24, 238, 56, 0.88),
+                      -3px -3px 10px rgba(129, 70, 70, 0.41);
+          text-shadow: 2px 2px 4px rgba(203, 255, 17, 0.9);
+          border: 1px solid rgba(113, 108, 108, 0.2);
+          font-weight: 600;
+          letter-spacing: 0.8px;
+          color: white !important;
+          text-decoration: none !important;
+        }
+
+        .portfolio-link:hover {
+          transform: translateY(-3px);
+          background: linear-gradient(145deg, #7e51d0, #7525ff);
+          box-shadow: 0 5px 15px rgba(111, 66, 193, 0.4),
+                      0 0 20px rgba(111, 66, 193, 0.2);
+          text-decoration: none;
+        }
+
+        .portfolio-link:active {
+          transform: translateY(1px);
+          box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2),
+                      inset -2px -2px 5px rgba(255, 255, 255, 0.1);
+        }
+
+        .globe-icon {
+          transition: all 0.5s ease;
+          color: rgba(255, 255, 255, 0.9);
+        }
+
+        .portfolio-link:hover .globe-icon {
+          transform: rotate(360deg);
+          color: white;
+          filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+        }
+      `}</style>
     </footer>
   );
 };

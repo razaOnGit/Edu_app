@@ -7,18 +7,16 @@ const CarouselSlider = () => {
   const carouselItems = [
     {
       image: "/images/slide1.png",
-      //title: "Welcome to Kalam Academy",
-     // description: "Empowering minds through quality education"
+      
     },
     {
       image: "/images/slide2.png",
-      title: "Excellence in Education",
-      description: "Comprehensive coaching for cracking competitive exams"
+      
     },
     {
       image: "/images/slide3.png",
-      title: "Islamic Values",
-      description: "Building character with strong moral foundations"
+      // title: "Islamic Values",
+      // description: "Building character with strong moral foundations"
     }
   ];
   const CustomPrevArrow = ({ onClick }) => (
@@ -50,21 +48,25 @@ const CarouselSlider = () => {
                 alt={`Slide ${index + 1}`}
               />
             </div>
-            <Carousel.Caption className="carousel-caption">
-              <h2>{item.title}</h2>
-              <p>{item.description}</p>
-            </Carousel.Caption>
           </Carousel.Item>
         ))}
       </Carousel>
       <style jsx>{`
         .carousel-wrapper {
-          margin-top: 76px;
+          margin: 0;
+          padding: 0;
+          width: 100vw;
+          position: relative;
+          left: 50%;
+          right: 50%;
+          margin-left: -50vw;
+          margin-right: -50vw;
+          overflow: hidden;
         }
         .carousel-image-container {
           width: 100%;
           height: auto;
-          max-height: 600px;
+          max-height: 800px;
           overflow: hidden;
           display: flex;
           align-items: center;
@@ -72,26 +74,11 @@ const CarouselSlider = () => {
         }
         .carousel-image-container img {
           width: 100%;
-          height: auto;
-          max-height: 100%;
-          object-fit: contain;
+          height: 100%;
+          object-fit: cover;
         }
         .custom-carousel {
           background-color: #f8f9fa;
-        }
-        .carousel-caption {
-          background: rgba(0, 0, 0, 0.5);
-          padding: 20px;
-          border-radius: 10px;
-          bottom: 20%;
-        }
-        .carousel-caption h2 {
-          font-size: 2.5rem;
-          font-weight: bold;
-          margin-bottom: 1rem;
-        }
-        .carousel-caption p {
-          font-size: 1.2rem;
         }
         .carousel-control {
           position: absolute;
@@ -99,8 +86,8 @@ const CarouselSlider = () => {
           transform: translateY(-50%);
           background: rgba(0, 0, 0, 0.5);
           border: none;
-          width: 50px;
-          height: 50px;
+          width: 40px;
+          height: 40px;
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -111,10 +98,30 @@ const CarouselSlider = () => {
           z-index: 2;
         }
         .carousel-control.prev {
-          left: 20px;
+          left: 5px;
         }
         .carousel-control.next {
-          right: 20px;
+          right: 5px;
+        }
+        // @media (max-width: 768px) {
+        //   .carousel-wrapper {
+        //     width: 100vw;
+        //     margin-left: -50vw;
+        //     margin-right: -50vw;
+        //   }
+          .carousel-image-container {
+            height: 100px;
+          }
+          .carousel-control {
+            width: 30px;
+            height: 30px;
+          }
+          .carousel-control.prev {
+            left: 0;
+          }
+          .carousel-control.next {
+            right: 0;
+          }
         }
       `}</style>
     </div>

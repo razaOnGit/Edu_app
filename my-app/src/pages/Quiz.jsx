@@ -29,10 +29,11 @@ const Quiz = () => {
   ];
 
   const galleryImages = [
-    { url: "/images/quiz/2024-1.jpg", caption: "Quiz Competition 2024" },
-    { url: "/images/quiz/2024-2.jpg", caption: "Prize Distribution 2024" },
-    { url: "/images/quiz/2023-1.jpg", caption: "Quiz Competition 2023" },
-    { url: "/images/quiz/2023-2.jpg", caption: "Winners 2023" }
+    { url: "/quiz/2024.jpg", caption: "Quiz Competition 2024" },
+    { url: "/quiz/2023.jpg", caption: "Prize Distribution 2024" },
+    { url: "/quiz/2021.jpg", caption: "Quiz Competition 2023" },
+    { url: "/quiz/2020.jpg", caption: "Winners 2023" },
+    { url: "/quiz/2020_prize.jpg", caption: "Prize Distribution 2020" }
   ];
 
   return (

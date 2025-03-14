@@ -32,8 +32,12 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <CarouselSlider />
-      
+      <div className="carousel-wrapper">
+        <div className="carousel-container">
+          <CarouselSlider />
+        </div>
+      </div>
+
       <section className="hero bg-primary text-white py-5 mb-5">
         <div className="container">
           <div className="row align-items-center">
@@ -111,7 +115,7 @@ const Home = () => {
             ))}
           </div>
         </div>
-        <style jsx>{`
+        {/* <style jsx>{`
           .card-img-wrapper {
             width: 100%;
             height: 300px;
@@ -137,7 +141,7 @@ const Home = () => {
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
           }
-        `}</style>
+        `}</style> */}
       </section>
 
       {/* Achievement Section */}
@@ -178,7 +182,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </div>
+   </div>
   );
 };
 
