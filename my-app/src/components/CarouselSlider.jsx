@@ -17,6 +17,9 @@ const CarouselSlider = () => {
       image: "/images/slide3.png",
       // title: "Islamic Values",
       // description: "Building character with strong moral foundations"
+    },
+    {
+      image: "/images/banner2.jpg",
     }
   ];
   const CustomPrevArrow = ({ onClick }) => (

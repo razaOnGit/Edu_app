@@ -22,10 +22,16 @@ const Navbar = () => {
             <img
               src="/logo.jpg"
               alt=""
-              height="40"
+              height="55"  // Increased from 40 to 55
               className="me-2 logo"
             />
-            <span className="fw-bold fs-4">Kalam Academy</span>
+            <div className="brand-content">
+              <span className="fw-bold fs-2">
+                <span className="kalam-text">Kalam</span>{' '}
+                <span className="academy-text">Academy</span>
+              </span>
+              <p className="tagline mb-0">Learn the habit of Learning</p>
+            </div>
           </Link>
           <button
             className="navbar-toggler"
@@ -63,7 +69,10 @@ const Navbar = () => {
       <style jsx>{`
         .navbar {
           transition: all 0.3s ease;
-        }
+          background: linear-gradient(135deg,rgb(238, 240, 243) 0%,rgb(29, 29, 175) 100%) !important; // New gradient background
+        padding: 0.8rem 1rem; /* Increased padding for height */
+        min-height: 100px; 
+          }
 
         .navbar-collapse {
           transition: all 0.3s ease-in-out;
@@ -74,7 +83,7 @@ const Navbar = () => {
           transition: all 0.3s ease;
           padding: 0.5rem 1rem;
           margin: 0 0.2rem;
-          border-radius: 8px;
+          border-radius: 58px;
         }
 
         .nav-link:before {
@@ -94,7 +103,63 @@ const Navbar = () => {
         }
 
         .nav-link.active {
-          background: rgba(255, 255, 255, 0.1);
+          background: rgb(195, 13, 13);
+        }
+
+        .brand-content {
+          display: flex;
+          flex-direction: column;
+          line-height: 1.2;
+        }
+
+        .tagline {
+          font-size: 0.75rem;
+          color: rgba(255, 255, 255, 0.9);
+          font-style: italic-oblique;
+          margin-top: 2px;
+          transition: all 0.3s ease;
+        }
+
+        .navbar-brand:hover .tagline {
+          color: rgba(255, 255, 255, 1);
+        }
+
+        .kalam-text {
+          color:rgb(27, 55, 147); /* Dark blue */
+          text-shadow: 1px 1px 2px rgba(26, 35, 126, 0.2);
+          transition: all 0.3s ease;
+        }
+
+        .academy-text {
+          color: #d32f2f; /* Red */
+          text-shadow: 1px 1px 2px rgba(211, 47, 47, 0.2);
+          transition: all 0.3s ease;
+        }
+
+        .navbar-brand:hover .kalam-text {
+          text-shadow: 2px 2px 4px rgba(26, 35, 126, 0.3);
+        }
+
+        .navbar-brand:hover .academy-text {
+          text-shadow: 2px 2px 4px rgba(211, 47, 47, 0.3);
+        }
+        .logo {
+          transition: all 0.3s ease;
+          height: 65px;
+          width: 65px;
+        }
+        
+
+        @media (max-width: 768px) {
+          .kalam-text,
+          .academy-text {
+            font-size: 1.7rem;
+          }
+
+          .logo {
+            height: 55px !important; 
+           width: 55px !important;
+          }
         }
       `}</style>
     </>

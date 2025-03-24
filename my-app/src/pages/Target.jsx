@@ -191,27 +191,33 @@ const Target = () => {
 
   return (
     <div className="target-page py-5">
-      <div className="container">
-        <h1 className="text-center mb-5">Target Batch Programs</h1>
-        
+    <div className="container">
+      <h1 className="target-heading text-center mb-5"> Target Batch Programs</h1>
+  
         <Tab.Container defaultActiveKey="streams">
-          <Nav variant="pills" className="justify-content-center mb-4">
-            <Nav.Item>
-              <Nav.Link eventKey="streams">
-                <FontAwesomeIcon icon={faBook} className="me-2" />
-                Streams & Classes
+          <Nav variant="pills" className="nav-pills-custom mb-4">
+            <Nav.Item className="nav-item-wrapper">
+              <Nav.Link eventKey="streams" className="nav-link-fancy">
+                <div className="icon-wrapper">
+                  <FontAwesomeIcon icon={faBook} className="nav-icon" />
+                </div>
+                <span className="nav-text">Streams & Classes</span>
               </Nav.Link>
             </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="universities">
-                <FontAwesomeIcon icon={faGraduationCap} className="me-2" />
-                Universities
+            <Nav.Item className="nav-item-wrapper">
+              <Nav.Link eventKey="universities" className="nav-link-fancy">
+                <div className="icon-wrapper">
+                  <FontAwesomeIcon icon={faGraduationCap} className="nav-icon" />
+                </div>
+                <span className="nav-text">Universities</span>
               </Nav.Link>
             </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="results">
-                <FontAwesomeIcon icon={faTrophy} className="me-2" />
-                Past Results
+            <Nav.Item className="nav-item-wrapper">
+              <Nav.Link eventKey="results" className="nav-link-fancy">
+                <div className="icon-wrapper">
+                  <FontAwesomeIcon icon={faTrophy} className="nav-icon" />
+                </div>
+                <span className="nav-text">Past Results</span>
               </Nav.Link>
             </Nav.Item>
           </Nav>
@@ -335,23 +341,303 @@ const Target = () => {
       </div>
 
       <style jsx>{`
-        .hover-card {
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .target-page { 
+          background: rgb(255, 255, 255); 
         }
-        .hover-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+        .nav-pills-custom {
+          display: flex;
+          justify-content: center;
+          gap: 1.5rem;
+          padding: 1.2rem;
+          background: rgba(255, 255, 255, 0.95);
+          border-radius: 20px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+          backdrop-filter: blur(10px);
         }
-        .nav-pills .nav-link {
-          border-radius: 25px;
-          padding: 10px 20px;
-          margin: 0 5px;
+
+        .nav-item-wrapper {
+          flex: 1;
+          max-width: 220px;
+        }
+
+        .nav-link-fancy {
+          display: flex;
+          align-items: center;
+          padding: 1rem 1.5rem;
+          border-radius: 12px !important;
+          background: linear-gradient(145deg, #ffffff, #e6e6e6);
+          box-shadow: 5px 5px 10px #d1d1d1, -5px -5px 10px #ffffff;
+          transition: all 0.3s ease;
+          border: none !important;
+          color: #666 !important;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .icon-wrapper {
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 10px;
+          margin-right: 12px;
           transition: all 0.3s ease;
         }
-        .nav-pills .nav-link.active {
-          background-color: #007bff;
-          box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+
+        .nav-icon {
+          font-size: 1.2rem;
+          transition: all 0.3s ease;
         }
+
+        .nav-text {
+          font-weight: 600;
+          font-size: 1rem;
+          letter-spacing: 0.5px;
+        }
+
+        /* Active States with your colors */
+        .nav-link-fancy.active {
+          background: linear-gradient(135deg, rgb(223, 13, 13), rgb(212, 22, 22));
+          color: white !important;
+          transform: translateY(-2px);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-item-wrapper:nth-child(2) .nav-link-fancy.active {
+          background: linear-gradient(135deg, #ff9800, #e65100);
+        }
+
+        .nav-item-wrapper:nth-child(3) .nav-link-fancy.active {
+          background: linear-gradient(135deg, #28a745, #1e7e34);
+        }
+
+        /* Hover Effects */
+        .nav-link-fancy:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-link-fancy:hover .icon-wrapper {
+          transform: scale(1.1) rotate(5deg);
+        }
+
+        .nav-link-fancy:hover .nav-icon {
+          transform: scale(1.1);
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+          .nav-pills-custom {
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem;
+          }
+
+          .nav-item-wrapper {
+            max-width: 100%;
+          }
+
+          .nav-link-fancy {
+            padding: 0.8rem 1.2rem;
+            justify-content: center;
+          }
+
+          .icon-wrapper {
+            width: 32px;
+            height: 32px;
+          }
+
+          .nav-text {
+            font-size: 0.9rem;
+          }
+
+          .nav-link-fancy.active {
+            transform: translateY(0);
+            box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.2);
+          }
+
+          .nav-link-fancy.active::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            width: 40%;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateX(-50%);
+            border-radius: 2px;
+          }
+        }
+
+        .hover-card {
+          transition: all 0.3s ease;
+          border: none;
+          border-radius: 15px;
+          overflow: hidden;
+        }
+
+        .hover-card .card-header {
+          padding: 1.5rem;
+          border: none;
+          position: relative;
+          background: linear-gradient(145deg, #4e54c8, #8f94fb);
+        }
+
+        .hover-card .card-body {
+          padding: 1.5rem;
+        }
+
+        .hover-card .btn {
+          border-radius: 25px;
+          padding: 12px 24px;
+          font-weight: 600;
+          letter-spacing: 0.5px;
+          transition: all 0.3s ease;
+          background: linear-gradient(145deg,rgba(67, 54, 185, 0.42), #e6e6e6);
+          border: none;
+          color: #333;
+          box-shadow: 5px 5px 10px #d1d1d1,
+                      -5px -5px 10px #ffffff;
+        }
+
+        .hover-card .btn:hover {
+          transform: translateY(-2px);
+          background: linear-gradient(145deg, #e6e6e6, #ffffff);
+          color: #4e54c8;
+          box-shadow: 7px 7px 14px #d1d1d1,
+                      -7px -7px 14px #ffffff;
+        }
+
+        .hover-card .btn:active {
+          transform: translateY(1px);
+          background: linear-gradient(145deg, #e6e6e6, #ffffff);
+          box-shadow: inset 5px 5px 10px #d1d1d1,
+                      inset -5px -5px 10px #ffffff;
+        }
+
+        .table {
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0 0 15px rgba(0,0,0,0.05);
+        }
+
+        .table thead th {
+          background: #f8f9fa;
+          border-bottom: 2px solid #dee2e6;
+          padding: 1rem;
+        }
+
+        .card {
+          border-radius: 15px;
+          overflow: hidden;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .card-header {
+          padding: 1.5rem;
+          border: none;
+        }
+
+        @media (max-width: 768px) {
+          .tab-button {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+          }
+          
+          .hover-card .card-header,
+          .hover-card .card-body {
+            padding: 1rem;
+          }
+        }
+
+         .target-heading {
+    font-size: 3rem; /* Large text */
+    font-weight: 700; /* Bold font */
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #ff9800, #e65100); /* Gradient effect */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Make gradient text */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+    display: inline-block;
+    padding-bottom: 10px;
+    border-bottom: 4px solid #ff9800; /* Underline effect */
+    animation: fadeInUp 1s ease-in-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .nav-pills-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .tab-button {
+    border: none;
+    padding: 12px 24px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    color: white !important;
+    border-radius: 30px !important;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    .nav-pills-container {
+      flex-direction: column;
+      gap: 15px;
+      padding: 0 15px;
+    }
+
+    .tab-button {
+      margin: 0;
+      padding: 12px 20px;
+      font-size: 1rem;
+      width: 100%;
+      text-align: center;
+      border-radius: 12px !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Add press effect */
+    .tab-button:active {
+      transform: scale(0.98);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Improve icon and text alignment */
+    .tab-button svg {
+      font-size: 1.2rem;
+      margin-right: 10px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .nav-pills-container {
+      gap: 12px;
+      padding: 0 10px;
+    }
+
+    .tab-button {
+      padding: 10px 16px;
+    }
+  }
       `}</style>
     </div>
   );

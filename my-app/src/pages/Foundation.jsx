@@ -3,7 +3,7 @@ import { Tab, Nav, Card, Button, Row, Col, Table } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faBook, faGraduationCap, faTrophy, faChalkboardTeacher,
-  faUserGraduate, faSchool, faAward
+  faUserGraduate, faSchool, faAward, faLaptopCode, faClock, faUsers
 } from '@fortawesome/free-solid-svg-icons';
 
 const Foundation = () => {
@@ -12,74 +12,35 @@ const Foundation = () => {
       level: "Primary (5-8)",
       icon: faSchool,
       subjects: {
-        "Core": [
-          "Mathematics",
-          "Science",
-          "English",
-          "Hindi/Urdu"
-        ],
-        "Additional": [
-          "Social Studies",
-          "Computer Basics",
-          "Islamic Studies",
-          "Moral Education"
-        ]
+        "Core": ["Mathematics", "Science", "English", "Hindi/Urdu"],
+        "Additional": ["Social Studies", "Computer Basics", "Islamic Studies", "Moral Education"]
       }
     },
     {
       level: "Secondary (9-10)",
       icon: faUserGraduate,
       subjects: {
-        "Science": [
-          "Mathematics",
-          "Physics",
-          "Chemistry",
-          "Biology"
-        ],
-        "Arts": [
-          "History",
-          "Geography",
-          "Political Science",
-          "Economics"
-        ]
+        "Science": ["Mathematics", "Physics", "Chemistry", "Biology"],
+        "Arts": ["History", "Geography", "Political Science", "Economics"]
       }
     },
     {
       level: "Higher Secondary (11-12)",
       icon: faGraduationCap,
       subjects: {
-        "Science": [
-          "Physics",
-          "Chemistry",
-          "Mathematics/Biology",
-          "Computer Science"
-        ],
-        "Arts/Commerce": [
-          "Economics",
-          "Business Studies",
-          "Accountancy",
-          "Mathematics"
-        ]
+        "Science": ["Physics", "Chemistry", "Mathematics/Biology", "Computer Science"],
+        "Arts/Commerce": ["Economics", "Business Studies", "Accountancy", "Mathematics"]
       }
     }
   ];
 
   const features = [
-    {
-      title: "Expert Faculty",
-      icon: faChalkboardTeacher,
-      description: "Experienced teachers dedicated to student success"
-    },
-    {
-      title: "Regular Assessment",
-      icon: faBook,
-      description: "Weekly tests and performance tracking"
-    },
-    {
-      title: "Achievement Programs",
-      icon: faAward,
-      description: "Recognition and rewards for top performers"
-    }
+    { title: "Expert Faculty", icon: faChalkboardTeacher, description: "Experienced teachers dedicated to student success" },
+    { title: "Regular Assessment", icon: faBook, description: "Weekly tests and performance tracking" },
+    { title: "Achievement Programs", icon: faAward, description: "Recognition and rewards for top performers" },
+    { title: "Technology Integration", icon: faLaptopCode, description: "Smart classes & online study resources" },
+    { title: "Flexible Learning", icon: faClock, description: "Weekend & evening batches available" },
+    { title: "Interactive Classes", icon: faUsers, description: "Group discussions, quizzes & workshops" }
   ];
 
   const results = [
@@ -102,39 +63,46 @@ const Foundation = () => {
   ];
 
   return (
-    <div className="foundation-page py-5">
-      <div className="container">
-        <h1 className="text-center mb-5">Foundation Programs</h1>
-        
+    <div className="target-page py-5">
+    <div className="container">
+      <h1 className="target-heading text-center mb-5"> Foundation Programs </h1>
+  
         <Tab.Container defaultActiveKey="classes">
-          <Nav variant="pills" className="justify-content-center mb-4">
-            <Nav.Item>
-              <Nav.Link eventKey="classes">
-                <FontAwesomeIcon icon={faBook} className="me-2" />
-                Classes & Subjects
+          <Nav variant="pills" className="nav-pills-custom mb-4">
+            <Nav.Item className="nav-item-wrapper">
+              <Nav.Link eventKey="classes" className="nav-link-fancy">
+                <div className="icon-wrapper">
+                  <FontAwesomeIcon icon={faBook} className="nav-icon" />
+                </div>
+                <span className="nav-text">Classes & Subjects</span>
               </Nav.Link>
             </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="features">
-                <FontAwesomeIcon icon={faChalkboardTeacher} className="me-2" />
-                Features
+            <Nav.Item className="nav-item-wrapper">
+              <Nav.Link eventKey="features" className="nav-link-fancy">
+                <div className="icon-wrapper">
+                  <FontAwesomeIcon icon={faChalkboardTeacher} className="nav-icon" />
+                </div>
+                <span className="nav-text">Features</span>
               </Nav.Link>
             </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="results">
-                <FontAwesomeIcon icon={faTrophy} className="me-2" />
-                Results
+            <Nav.Item className="nav-item-wrapper">
+              <Nav.Link eventKey="results" className="nav-link-fancy">
+                <div className="icon-wrapper">
+                  <FontAwesomeIcon icon={faTrophy} className="nav-icon" />
+                </div>
+                <span className="nav-text">Results</span>
               </Nav.Link>
             </Nav.Item>
           </Nav>
 
           <Tab.Content>
+            {/* Classes & Subjects Section */}
             <Tab.Pane eventKey="classes">
               <Row>
                 {classes.map((level, index) => (
                   <Col lg={4} key={index} className="mb-4">
                     <Card className="h-100 shadow-sm hover-card">
-                      <Card.Header className="bg-primary text-white">
+                      <Card.Header className="bg-dark text-white">
                         <h4 className="mb-0">
                           <FontAwesomeIcon icon={level.icon} className="me-2" />
                           {level.level}
@@ -147,18 +115,14 @@ const Foundation = () => {
                             <ul className="list-unstyled">
                               {subjects.map((subject, idx) => (
                                 <li key={idx} className="mb-2">
-                                  <FontAwesomeIcon icon={faBook} className="me-2 text-primary" />
+                                  <FontAwesomeIcon icon={faBook} className="me-2 text-dark" />
                                   {subject}
                                 </li>
                               ))}
                             </ul>
                           </div>
                         ))}
-                        <Button 
-                          variant="outline-primary" 
-                          className="w-100 mt-3"
-                          href={`#enroll-${level.level.toLowerCase()}`}
-                        >
+                        <Button variant="outline-dark" className="w-100 mt-3">
                           Enroll Now
                         </Button>
                       </Card.Body>
@@ -168,16 +132,14 @@ const Foundation = () => {
               </Row>
             </Tab.Pane>
 
+            {/* Features Section */}
             <Tab.Pane eventKey="features">
               <Row>
                 {features.map((feature, index) => (
                   <Col md={4} key={index}>
                     <Card className="text-center mb-4 shadow-sm hover-card">
                       <Card.Body>
-                        <FontAwesomeIcon 
-                          icon={feature.icon} 
-                          className="display-4 text-primary mb-3"
-                        />
+                        <FontAwesomeIcon icon={feature.icon} className="display-4 text-warning mb-3" />
                         <h4>{feature.title}</h4>
                         <p className="text-muted">{feature.description}</p>
                       </Card.Body>
@@ -187,6 +149,7 @@ const Foundation = () => {
               </Row>
             </Tab.Pane>
 
+            {/* Results Section */}
             <Tab.Pane eventKey="results">
               {results.map((yearData, index) => (
                 <Card key={index} className="mb-4 shadow-sm">
@@ -224,26 +187,171 @@ const Foundation = () => {
             </Tab.Pane>
           </Tab.Content>
         </Tab.Container>
-
         <style jsx>{`
-          .hover-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-          }
-          .hover-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-          }
-          .nav-pills .nav-link {
-            border-radius: 25px;
-            padding: 10px 20px;
-            margin: 0 5px;
-            transition: all 0.3s ease;
-          }
-          .nav-pills .nav-link.active {
-            background-color: #007bff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-          }
-        `}</style>
+  .nav-pills-custom {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-item-wrapper {
+    flex: 1;
+    max-width: 220px;
+  }
+
+  .nav-link-fancy {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-radius: 12px !important;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    box-shadow: 5px 5px 10px #d1d1d1, -5px -5px 10px #ffffff;
+    transition: all 0.3s ease;
+    border: none !important;
+    color: #666 !important;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .icon-wrapper {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin-right: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-icon {
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+  }
+
+  .nav-text {
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+  }
+
+  /* Active States */
+  .nav-link-fancy.active {
+    background: linear-gradient(145deg, rgba(20, 158, 218, 0.88), rgb(207, 19, 198));
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .nav-link-fancy:nth-child(2).active {
+    background: linear-gradient(145deg, #ff9800, #e65100);
+  }
+
+  .nav-link-fancy:nth-child(3).active {
+    background: linear-gradient(145deg, #28a745, #1e7e34);
+  }
+
+  /* Effects */
+  .nav-link-fancy:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-link-fancy:hover .icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  .nav-link-fancy:hover .nav-icon {
+    transform: scale(1.1);
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    .nav-pills-custom {
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .nav-item-wrapper {
+      max-width: 100%;
+    }
+
+    .nav-link-fancy {
+      padding: 0.8rem 1.2rem;
+      justify-content: center;
+    }
+
+    .icon-wrapper {
+      width: 32px;
+      height: 32px;
+    }
+
+    .nav-text {
+      font-size: 0.9rem;
+    }
+
+    .nav-link-fancy.active {
+      transform: translateY(0);
+      box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-link-fancy.active::after {
+      content: '';
+      position: absolute;
+      bottom: 5px;
+      left: 50%;
+      width: 40%;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.5);
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+  }
+
+  /* Card Styles */
+  .hover-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+
+  .hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Heading Styles */
+  .target-heading {
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, rgb(3, 7, 131), rgb(247, 38, 38));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    padding-bottom: 10px;
+    border-bottom: 4px solid rgb(249, 7, 7);
+    animation: fadeInUp 1s ease-in-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`}</style>
       </div>
     </div>
   );
