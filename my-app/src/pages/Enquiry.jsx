@@ -97,10 +97,10 @@ const Enquiry = () => {
     try {
       debug('Sending email', templateParams);
       const result = await emailjs.send(
-        'service_id',
-        'template_id',
-        templateParams,
-        'public-key'
+        'service_7bpusae',   //service_7bpusae
+        'template_mm9c30h',       // template_mm9c30h
+        templateParams, 
+        'YP9va7oWZyO_aeGB-'     //YP9va7oWZyO_aeGB-
       );
       
       if (result.status === 200) {
