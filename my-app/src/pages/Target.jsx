@@ -3,52 +3,30 @@ import { Tab, Nav, Card, Button, Row, Col, Table } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faDownload, faTrophy, faBook, faGraduationCap, 
-  faAtom, faPalette, faCalculator, faCog 
+  faAtom, faPalette, faCalculator, faCog, faInfoCircle
 } from '@fortawesome/free-solid-svg-icons';
 
 const Target = () => {
-  const streams = [
-    {
-      name: "Science",
-      icon: faAtom,
-      classes: {
-        "IX": ["Physics", "Chemistry", "Biology", "Mathematics"],
-        "XI": ["Physics", "Chemistry", "Mathematics", "Computer Science/Biology"]
-      }
-    },
-    {
-      name: "Arts",
-      icon: faPalette,
-      classes: {
-        "IX(S.St)": ["History", "Geography", "Political Science", "Languages"],
-        "XI": ["History", "Political Science", "Economics", "Psychology"]
-      }
-    },
-    {
-      name: "Commerce",
-      icon: faCalculator,
-      classes: {
-        "IX(S.St)": ["Mathematics", "Social Studies", "Economics", "Business Studies"],
-        "XI": ["Accountancy", "Business Studies", "Economics", "Mathematics"]
-      }
-    },
-    {
-      name: "Diploma Engineering",
-      icon: faCog,
-      classes: {
-        "XI": ["Mathematics", "Physics", "Chemistry", "Engineering Drawing"]
-      }
-    }
-  ];
-
   const universities = [
     {
       name: "AMU",
       fullName: "Aligarh Muslim University",
       description: "Leading central university known for its academic excellence",
       syllabusLinks: {
+        "VI": {
+          "General": {
+            title: "Class VI - AMU",
+            subjects: [
+              "Mathematics: Basic Arithmetic, Geometry",
+              "Science: General Science",
+              "Social Studies: History, Geography",
+              "Languages: English, Hindi/Urdu"
+            ],
+            pdfLink: "/syllabi/amu/class6.pdf"
+          }
+        },
         "IX": {
-          "Science": {
+          "General": {
             title: "Class IX Science - AMU",
             subjects: [
               "Physics: Motion, Force, Energy",
@@ -57,29 +35,30 @@ const Target = () => {
               "Mathematics: Algebra, Geometry"
             ],
             pdfLink: "/syllabi/amu/class9_science.pdf"
-          },
-         
+          }
         },
         "XI": {
-          "Science": {
+          "Science/Diploma Engineering": {
             title: "Class XI Science - AMU",
             subjects: [
               "Physics: Mechanics, Thermodynamics",
-              "Chemistry: Organic Chemistry, Atomic Structure",
-              "Mathematics: Calculus, Trigonometry",
-              "Biology: Cell Biology, Genetics (Optional)"
+              "Chemistry: Organic Chemistry, Chemical Bonding",
+              "Biology: Human Physiology, Genetics",
+              "Mathematics: Calculus, Trigonometry"
             ],
             pdfLink: "/syllabi/amu/class11_science.pdf"
-          },
-          "Arts_Commerce": {
-            title: "Class XI Arts & Commerce - AMU",
+          }
+        },
+        "XI Arts/Commerce": {
+          "Arts/Commerce": {
+            title: "Class XI Arts/Commerce - AMU",
             subjects: [
-              "Economics: Microeconomics",
-              "Business Studies: Business Organization",
-              "Accountancy: Basic Accounting",
-              "Mathematics: Statistics (Optional)"
+              "History: Ancient History",
+              "Geography: Physical Geography",
+              "Political Science: Democratic Politics",
+              "Languages: English, Hindi/Urdu"
             ],
-            pdfLink: "/syllabi/amu/class11_arts_commerce.pdf"
+            pdfLink: "/syllabi/amu/class11_arts.pdf"
           }
         }
       }
@@ -89,8 +68,20 @@ const Target = () => {
       fullName: "Jamia Millia Islamia",
       description: "Renowned central university focusing on modern education",
       syllabusLinks: {
+        "VI": {
+          "General": {
+            title: "Class VI - JMI",
+            subjects: [
+              "Mathematics: Basic Concepts",
+              "Science: Introduction to Science",
+              "Social Studies: History, Civics",
+              "Languages: English, Hindi/Urdu"
+            ],
+            pdfLink: "/syllabi/jmi/class6.pdf"
+          }
+        },
         "IX": {
-          "Science": {
+          "General": {
             title: "Class IX Science - JMI",
             subjects: [
               "Physics: Basic Physics",
@@ -99,29 +90,30 @@ const Target = () => {
               "Mathematics: Basic Mathematics"
             ],
             pdfLink: "/syllabi/jmi/class9_science.pdf"
-          },
-         
+          }
         },
         "XI": {
-          "Science": {
+          "Science/Humanities": {
             title: "Class XI Science - JMI",
             subjects: [
-              "Physics: Advanced Mechanics",
-              "Chemistry: Chemical Bonding",
-              "Mathematics: Advanced Algebra",
-              "Computer Science (Optional)"
+              "Physics: Waves, Optics",
+              "Chemistry: Physical Chemistry, Inorganic Chemistry",
+              "Biology: Plant Physiology, Ecology",
+              "Mathematics: Algebra, Coordinate Geometry"
             ],
             pdfLink: "/syllabi/jmi/class11_science.pdf"
-          },
-          "Arts_Commerce": {
-            title: "Class XI Arts & Commerce - JMI",
+          }
+        },
+        "XI Arts/Commerce": {
+          "Arts/Commerce": {
+            title: "Class XI Arts/Commerce - JMI",
             subjects: [
-              "Economics: Indian Economy",
-              "Business Studies: Management",
-              "Accountancy: Financial Accounting",
-              "Political Science (Optional)"
+              "History: Ancient History",
+              "Geography: Physical Geography",
+              "Political Science: Democratic Politics",
+              "Languages: English, Hindi/Urdu"
             ],
-            pdfLink: "/syllabi/jmi/class11_arts_commerce.pdf"
+            pdfLink: "/syllabi/jmi/class11_arts.pdf"
           }
         }
       }
@@ -131,8 +123,20 @@ const Target = () => {
       fullName: "Banaras Hindu University",
       description: "Historic institution known for holistic education",
       syllabusLinks: {
+        "VI": {
+          "General": {
+            title: "Class VI - BHU",
+            subjects: [
+              "Mathematics: Fundamentals",
+              "Science: General Science",
+              "Social Studies: History, Geography",
+              "Languages: English, Hindi/Sanskrit"
+            ],
+            pdfLink: "/syllabi/bhu/class6.pdf"
+          }
+        },
         "IX": {
-          "Science": {
+          "General": {
             title: "Class IX Science - BHU",
             subjects: [
               "Physics: Mechanics & Properties",
@@ -141,29 +145,30 @@ const Target = () => {
               "Mathematics: Number System"
             ],
             pdfLink: "/syllabi/bhu/class9_science.pdf"
-          },
-      
+          }
         },
         "XI": {
-          "Science": {
-            title: "Class XI Science - BHU",
+        "Science": {
+          title: "Class XI Science - BHU",
+          subjects: [
+            "Physics: Mechanics, Thermodynamics",
+            "Chemistry: Organic Chemistry, Chemical Bonding",
+            "Biology: Human Physiology, Genetics",
+            "Mathematics: Calculus, Trigonometry"
+          ],
+          pdfLink: "/syllabi/bhu/class11_science.pdf"
+        }
+      },
+        "XI Arts/Commerce": {
+          "Arts/Commerce": {
+            title: "Class XI Arts/Commerce - BHU",
             subjects: [
-              "Physics: Classical Mechanics",
-              "Chemistry: Organic Chemistry",
-              "Mathematics: Coordinate Geometry",
-              "Biology: Zoology & Botany (Optional)"
+              "History: Ancient History",
+              "Geography: Physical Geography",
+              "Political Science: Democratic Politics",
+              "Languages: English, Hindi/Sanskrit"
             ],
-            pdfLink: "/syllabi/bhu/class11_science.pdf"
-          },
-          "Arts_Commerce": {
-            title: "Class XI Arts & Commerce - BHU",
-            subjects: [
-              "Economics: Macro Economics",
-              "Business Studies: Enterprise",
-              "Accountancy: Company Accounts",
-              "Mathematics: Business Math (Optional)"
-            ],
-            pdfLink: "/syllabi/bhu/class11_arts_commerce.pdf"
+            pdfLink: "/syllabi/bhu/class11_arts.pdf"
           }
         }
       }
@@ -191,9 +196,9 @@ const Target = () => {
 
   return (
     <div className="target-page py-5">
-    <div className="container">
-      <h1 className="target-heading text-center mb-5"> Target Batch Programs</h1>
-  
+      <div className="container">
+        <h1 className="target-heading text-center mb-5">Target Batch Programs</h1>
+
         <Tab.Container defaultActiveKey="streams">
           <Nav variant="pills" className="nav-pills-custom mb-4">
             <Nav.Item className="nav-item-wrapper">
@@ -224,42 +229,218 @@ const Target = () => {
 
           <Tab.Content>
             <Tab.Pane eventKey="streams">
-              <Row>
-                {streams.map((stream, index) => (
-                  <Col lg={6} key={index} className="mb-4">
-                    <Card className="h-100 shadow-sm hover-card">
-                      <Card.Header className="bg-primary text-white">
-                        <h4 className="mb-0">
-                          <FontAwesomeIcon icon={stream.icon} className="me-2" />
-                          {stream.name}
-                        </h4>
-                      </Card.Header>
-                      <Card.Body>
-                        {Object.entries(stream.classes).map(([className, subjects]) => (
-                          <div key={className} className="mb-4">
-                            <h5 className="border-bottom pb-2">Class {className}</h5>
-                            <ul className="list-unstyled">
-                              {subjects.map((subject, idx) => (
-                                <li key={idx} className="mb-2">
-                                  <FontAwesomeIcon icon={faBook} className="me-2 text-primary" />
-                                  {subject}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ))}
-                        <Button 
-                          variant="outline-primary" 
-                          className="w-100 mt-3"
-                          href={`#enroll-${stream.name.toLowerCase()}`}
-                        >
-                          Enroll Now
-                        </Button>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                ))}
-              </Row>
+              <div className="university-streams-container">
+                {/* AMU Section */}
+                <Card className="mb-4 shadow-sm university-card">
+                  <Card.Header className="amu-header">
+                    <h3>Aligarh Muslim University (AMU)</h3>
+                  </Card.Header>
+                  <Card.Body>
+                    <Row>
+                      {/* Class VI */}
+                      <Col md={6} className="mb-4">
+                        <div className="class-card">
+                          <h4>Class VI</h4>
+                          <p className="info-text">
+                            <FontAwesomeIcon icon={faInfoCircle} className="me-2" />
+                            Check subjects and syllabus in University tab before enrolling
+                          </p>
+                          <Button variant="primary" className="enroll-btn">
+                            Enroll Now
+                          </Button>
+                        </div>
+                      </Col>
+
+                      {/* Class IX */}
+                      <Col md={6} className="mb-4">
+                        <div className="class-card">
+                          <h4>Class IX</h4>
+                          <p className="info-text">
+                            <FontAwesomeIcon icon={faInfoCircle} className="me-2" />
+                            Check subjects and syllabus in University tab before enrolling
+                          </p>
+                          <Button variant="primary" className="enroll-btn">
+                            Enroll Now
+                          </Button>
+                        </div>
+                      </Col>
+
+                      {/* Class XI - Science */}
+                      <Col md={6} className="mb-4">
+                        <div className="class-card">
+                          <h4>Class XI - Science/Diploma Engineering</h4>
+                          <p className="info-text">
+                            <FontAwesomeIcon icon={faInfoCircle} className="me-2" />
+                            Check subjects and syllabus in University tab before enrolling
+                          </p>
+                          <Button variant="primary" className="enroll-btn">
+                            Enroll Now
+                          </Button>
+                        </div>
+                      </Col>
+                    </Row>
+                  </Card.Body>
+                </Card>
+
+                {/* JMI Section */}
+                <Card className="mb-4 shadow-sm university-card">
+                  <Card.Header className="jmi-header">
+                    <h3>Jamia Millia Islamia (JMI)</h3>
+                  </Card.Header>
+                  <Card.Body>
+                    <Row>
+                      {/* Class VI */}
+                      <Col md={6} className="mb-4">
+                        <div className="class-card">
+                          <h4>Class VI</h4>
+                          <p className="info-text">
+                            <FontAwesomeIcon icon={faInfoCircle} className="me-2" />
+                            Check JMI subjects and syllabus in University tab before enrolling
+                          </p>
+                          <Button variant="primary" className="enroll-btn">
+                            Enroll Now
+                          </Button>
+                        </div>
+                      </Col>
+
+                      {/* Class IX */}
+                      <Col md={6} className="mb-4">
+                        <div className="class-card">
+                          <h4>Class IX</h4>
+                          <p className="info-text">
+                            <FontAwesomeIcon icon={faInfoCircle} className="me-2" />
+                            Check subjects and syllabus in University tab before enrolling
+                          </p>
+                          <Button variant="primary" className="enroll-btn">
+                            Enroll Now
+                          </Button>
+                        </div>
+                      </Col>
+
+                      {/* Class XI - Science */}
+                      <Col md={6} className="mb-4">
+                        <div className="class-card">
+                          <h4>Class XI - Science/Humanities</h4>
+                          <p className="info-text">
+                            <FontAwesomeIcon icon={faInfoCircle} className="me-2" />
+                            Check subjects and syllabus in University tab before enrolling
+                          </p>
+                          <Button variant="primary" className="enroll-btn">
+                            Enroll Now
+                          </Button>
+                        </div>
+                      </Col>
+                    </Row>
+                  </Card.Body>
+                </Card>
+
+                {/* BHU Section */}
+                <Card className="mb-4 shadow-sm university-card">
+                  <Card.Header className="bhu-header">
+                    <h3>Banaras Hindu University (BHU)</h3>
+                  </Card.Header>
+                  <Card.Body>
+                    <Row>
+                      {/* Class VI */}
+                      <Col md={6} className="mb-4">
+                        <div className="class-card">
+                          <h4>Class VI</h4>
+                          <p className="info-text">
+                            <FontAwesomeIcon icon={faInfoCircle} className="me-2" />
+                            Check subjects and syllabus in University tab before enrolling
+                          </p>
+                          <Button variant="primary" className="enroll-btn">
+                            Enroll Now
+                          </Button>
+                        </div>
+                      </Col>
+
+                      {/* Class IX */}
+                      <Col md={6} className="mb-4">
+                        <div className="class-card">
+                          <h4>Class IX</h4>
+                          <p className="info-text">
+                            <FontAwesomeIcon icon={faInfoCircle} className="me-2" />
+                            Check subjects and syllabus in University tab before enrolling
+                          </p>
+                          <Button variant="primary" className="enroll-btn">
+                            Enroll Now
+                          </Button>
+                        </div>
+                      </Col>
+
+                      {/* Class XI - Science */}
+                      <Col md={6} className="mb-4">
+                        <div className="class-card">
+                          <h4>Class XI - Science</h4>
+                          <p className="info-text">
+                            <FontAwesomeIcon icon={faInfoCircle} className="me-2" />
+                            Check subjects and syllabus in University tab before enrolling
+                          </p>
+                          <Button variant="primary" className="enroll-btn">
+                            Enroll Now
+                          </Button>
+                        </div>
+                      </Col>
+
+                      {/* Class XI - Commerce */}
+                      {/* <Col md={6} className="mb-4">
+                        <div className="class-card">
+                          <h4>Class XI - Commerce</h4>
+                          <p className="info-text">
+                            <FontAwesomeIcon icon={faInfoCircle} className="me-2" />
+                            Check subjects and syllabus in University tab before enrolling
+                          </p>
+                          <Button variant="primary" className="enroll-btn">
+                            Enroll Now
+                          </Button>
+                        </div>
+                      </Col> */}
+                      
+                    </Row>
+                  </Card.Body>
+                </Card>
+
+                {/* Commerce Section for Class XI */}
+                <Card className="mt-4 shadow-sm commerce-card">
+                  <Card.Header className="commerce-header">
+                    <h3>Commerce for Class XI</h3>
+                  </Card.Header>
+                  <Card.Body>
+                    <Row>
+                      {/* AMU Commerce */}
+                      <Col md={4} className="mb-4">
+                        <div className="commerce-option">
+                          <h5>AMU Commerce</h5>
+                          <Button variant="outline-primary" className="w-100 enroll-btn">
+                            Enroll Now
+                          </Button>
+                        </div>
+                      </Col>
+
+                      {/* JMI Commerce */}
+                      <Col md={4} className="mb-4">
+                        <div className="commerce-option">
+                          <h5>JMI Commerce</h5>
+                          <Button variant="outline-primary" className="w-100 enroll-btn">
+                            Enroll Now
+                          </Button>
+                        </div>
+                      </Col>
+
+                      {/* BHU Commerce */}
+                      <Col md={4} className="mb-4">
+                        <div className="commerce-option">
+                          <h5>BHU Commerce</h5>
+                          <Button variant="outline-primary" className="w-100 enroll-btn">
+                            Enroll Now
+                          </Button>
+                        </div>
+                      </Col>
+                    </Row>
+                  </Card.Body>
+                </Card>
+              </div>
             </Tab.Pane>
 
             <Tab.Pane eventKey="universities">
@@ -552,92 +733,158 @@ const Target = () => {
           }
         }
 
-         .target-heading {
-    font-size: 3rem; /* Large text */
-    font-weight: 700; /* Bold font */
-    text-transform: uppercase;
-    background: linear-gradient(135deg, #ff9800, #e65100); /* Gradient effect */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; /* Make gradient text */
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
-    display: inline-block;
-    padding-bottom: 10px;
-    border-bottom: 4px solid #ff9800; /* Underline effect */
-    animation: fadeInUp 1s ease-in-out;
-  }
+        .target-heading {
+          font-size: 3rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          background: linear-gradient(135deg, #ff9800, #e65100);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+          display: inline-block;
+          padding-bottom: 10px;
+          border-bottom: 4px solid #ff9800;
+          animation: fadeInUp 1s ease-in-out;
+        }
 
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
 
-  .nav-pills-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
+        .nav-pills-container {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 12px;
+        }
 
-  .tab-button {
-    border: none;
-    padding: 12px 24px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    color: white !important;
-    border-radius: 30px !important;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+        .tab-button {
+          border: none;
+          padding: 12px 24px;
+          font-weight: 500;
+          transition: all 0.3s ease;
+          color: white !important;
+          border-radius: 30px !important;
+          box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
 
-  @media (max-width: 768px) {
-    .nav-pills-container {
-      flex-direction: column;
-      gap: 15px;
-      padding: 0 15px;
-    }
+        @media (max-width: 768px) {
+          .nav-pills-container {
+            flex-direction: column;
+            gap: 15px;
+            padding: 0 15px;
+          }
 
-    .tab-button {
-      margin: 0;
-      padding: 12px 20px;
-      font-size: 1rem;
-      width: 100%;
-      text-align: center;
-      border-radius: 12px !important;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    }
+          .tab-button {
+            margin: 0;
+            padding: 12px 20px;
+            font-size: 1rem;
+            width: 100%;
+            text-align: center;
+            border-radius: 12px !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+          }
 
-    /* Add press effect */
-    .tab-button:active {
-      transform: scale(0.98);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    }
+          .tab-button:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+          }
 
-    /* Improve icon and text alignment */
-    .tab-button svg {
-      font-size: 1.2rem;
-      margin-right: 10px;
-    }
-  }
+          .tab-button svg {
+            font-size: 1.2rem;
+            margin-right: 10px;
+          }
+        }
 
-  @media (max-width: 576px) {
-    .nav-pills-container {
-      gap: 12px;
-      padding: 0 10px;
-    }
+        @media (max-width: 576px) {
+          .nav-pills-container {
+            gap: 12px;
+            padding: 0 10px;
+          }
 
-    .tab-button {
-      padding: 10px 16px;
-    }
-  }
+          .tab-button {
+            padding: 10px 16px;
+          }
+        }
+
+        /* Streams & Classes Tab Styles */
+        .university-streams-container {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        
+        .university-card {
+          border-radius: 12px;
+          overflow: hidden;
+        }
+        
+        .amu-header {
+          background: linear-gradient(135deg, #8e0e00, #1f1c18);
+          color: white;
+        }
+        
+        .jmi-header {
+          background: linear-gradient(135deg, #1a2980, #26d0ce);
+          color: white;
+        }
+        
+        .bhu-header {
+          background: linear-gradient(135deg, #0f2027, #2c5364);
+          color: white;
+        }
+        
+        .commerce-header {
+          background: linear-gradient(135deg, #11998e, #38ef7d);
+          color: white;
+        }
+        
+        .class-card {
+          padding: 20px;
+          border-radius: 10px;
+          background: #f8f9fa;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+        }
+        
+        .info-text {
+          font-size: 0.9rem;
+          color: #6c757d;
+          margin: 15px 0;
+          flex-grow: 1;
+        }
+        
+        .enroll-btn {
+          border-radius: 25px;
+          padding: 10px 20px;
+          font-weight: 500;
+          transition: all 0.3s ease;
+        }
+        
+        .commerce-option {
+          text-align: center;
+          padding: 20px;
+          background: #f8f9fa;
+          border-radius: 10px;
+          height: 100%;
+        }
+        
+        @media (max-width: 768px) {
+          .class-card, .commerce-option {
+            padding: 15px;
+          }
+        }
       `}</style>
     </div>
   );
