@@ -98,7 +98,7 @@ const Enquiry = () => {
       debug('Sending email', templateParams);
       const result = await emailjs.send(
         'service_7bpusae',   //service_7bpusae
-        'template_mm9c30h',       // template_mm9c30h
+        'template_qgoc7f9',       // 
         templateParams, 
         'YP9va7oWZyO_aeGB-'     //YP9va7oWZyO_aeGB-
       );

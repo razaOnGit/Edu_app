@@ -1,35 +1,36 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { TypeAnimation } from 'react-type-animation';
-import Achievements from '../components/Achievements';
-import CarouselSlider from '../components/CarouselSlider';
-import Enquiry from './Enquiry';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { TypeAnimation } from "react-type-animation";
+import Achievements from "../components/Achievements";
+import CarouselSlider from "../components/CarouselSlider";
+import Enquiry from "./Enquiry";
 
 const Home = () => {
   const [showEnquiry, setShowEnquiry] = useState(false);
   const sections = [
     {
       title: "Foundation Course",
-      description: "Start your journey with our comprehensive foundation program",
+      description:
+        "Start your journey with our comprehensive foundation program",
       image: "/foundation.webp",
       link: "/foundation",
-      color: "primary"
+      color: "primary",
     },
     {
       title: "Target Batch",
       description: "Specialized coaching for advanced learners",
       image: "/target.webp",
       link: "/target",
-      color: "success"
+      color: "success",
     },
     {
-      title: "Islamic Quiz",
+      title: " Quiz",
       description: "Test your knowledge with interactive quizzes",
-      image: "/quiz.webp",
+      image: "/image.jpg",
       link: "/quiz",
-      color: "warning"
-    }
+      color: "warning",
+    },
   ];
 
   return (
@@ -51,14 +52,14 @@ const Home = () => {
                 className="text-center text-md-start"
               >
                 <h1 className="display-4 fw-bold mb-4">
-                  Welcome to{' '}
+                  Welcome to{" "}
                   <TypeAnimation
                     sequence={[
-                      'Kalam Academy',
+                      "F2F Academy",
                       1000,
-                      'Excellence in Education',
+                      "Excellence in Education",
                       1000,
-                      'Islamic Values',
+                      " Values",
                       1000,
                     ]}
                     wrapper="span"
@@ -67,7 +68,9 @@ const Home = () => {
                     className="text-warning"
                   />
                 </h1>
-                <p className="lead">Empowering minds through quality education and Islamic knowledge</p>
+                <p className="lead">
+                  Empowering minds through quality education and knowledge
+                </p>
                 <Link to="/foundation" className="btn btn-light btn-lg mt-3">
                   Get Started
                 </Link>
@@ -80,11 +83,7 @@ const Home = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                <img
-                  src="/logo2.jpg"
-                  alt="Education"
-                  className="logo-image"
-                />
+                <img src="/logo3.jpg" alt="Education" className="logo-image" />
               </motion.div>
             </div>
           </div>
@@ -94,7 +93,7 @@ const Home = () => {
       {/* Main Sections Cards */}
       <section className="programs-section py-5">
         <div className="container">
-          <motion.div 
+          <motion.div
             className="programs-header"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -106,23 +105,23 @@ const Home = () => {
             </h2>
             <div className="programs-underline"></div>
           </motion.div>
-          
+
           <div className="row">
             {sections.map((section, index) => (
               <div key={index} className="col-md-4 mb-4">
                 <div className="card h-100 shadow-sm hover-card">
                   <div className="card-img-wrapper">
-                    <img 
-                      src={section.image} 
-                      className="card-img-top" 
+                    <img
+                      src={section.image}
+                      className="card-img-top"
                       alt={section.title}
                     />
                   </div>
                   <div className="card-body d-flex flex-column">
                     <h5 className="card-title">{section.title}</h5>
                     <p className="card-text">{section.description}</p>
-                    <Link 
-                      to={section.link} 
+                    <Link
+                      to={section.link}
                       className={`btn btn-${section.color} mt-auto`}
                     >
                       Learn More
@@ -161,7 +160,7 @@ const Home = () => {
           .programs-highlight {
             position: relative;
             display: inline-block;
-            background: linear-gradient(135deg, #FF6B6B, #FFB347);
+            background: linear-gradient(135deg, #ff6b6b, #ffb347);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 800;
@@ -171,11 +170,11 @@ const Home = () => {
           }
 
           .programs-highlight::before {
-            content: '';
+            content: "";
             position: absolute;
             width: 45px;
             height: 45px;
-            border: 4px solid #FF6B6B;
+            border: 4px solid #ff6b6b;
             border-radius: 50%;
             top: -10px;
             left: -15px;
@@ -187,7 +186,7 @@ const Home = () => {
           .programs-title:hover .programs-highlight::before {
             opacity: 0.4;
             transform: scale(1) rotate(15deg);
-            border-color: #FFB347;
+            border-color: #ffb347;
           }
 
           .programs-underline {
@@ -202,7 +201,7 @@ const Home = () => {
 
           .programs-underline::before,
           .programs-underline::after {
-            content: '';
+            content: "";
             position: absolute;
             width: 8px;
             height: 8px;
@@ -212,8 +211,12 @@ const Home = () => {
             transition: all 0.3s ease;
           }
 
-          .programs-underline::before { left: 0; }
-          .programs-underline::after { right: 0; }
+          .programs-underline::before {
+            left: 0;
+          }
+          .programs-underline::after {
+            right: 0;
+          }
 
           .programs-header:hover .programs-underline {
             width: 200px;
@@ -229,7 +232,8 @@ const Home = () => {
           }
 
           @keyframes glow {
-            0%, 100% {
+            0%,
+            100% {
               filter: drop-shadow(0 0 8px rgba(255, 107, 107, 0.6));
             }
             50% {
@@ -261,10 +265,10 @@ const Home = () => {
           .hover-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
           }
-          
+
           .hover-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
           }
         `}</style>
       </section>
@@ -275,7 +279,7 @@ const Home = () => {
       {/* Features Section */}
       <section className="why-choose-us py-5">
         <div className="container">
-          <motion.h2 
+          <motion.h2
             className="section-title text-center mb-5"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -290,26 +294,27 @@ const Home = () => {
                 icon: "📚",
                 title: "Quality Education",
                 description: "Expert teachers and comprehensive curriculum",
-                gradient: "linear-gradient(135deg, #6e8efb, #4759e8)"
+                gradient: "linear-gradient(135deg, #6e8efb, #4759e8)",
               },
               {
                 icon: "🎯",
                 title: "Focused Learning",
                 description: "Personalized attention and targeted approach",
-                gradient: "linear-gradient(135deg, #ff9a9e, #fad0c4)"
+                gradient: "linear-gradient(135deg, #ff9a9e, #fad0c4)",
               },
               {
                 icon: "🌟",
-                title: "Islamic Values",
-                description: "Strong foundation in Islamic principles",
-                gradient: "linear-gradient(135deg, #43e97b, #38f9d7)"
+                title: " Values",
+                description: "Strong foundation in  principles",
+                gradient: "linear-gradient(135deg, #43e97b, #38f9d7)",
               },
               {
                 icon: "👨🏽‍💼",
                 title: "Career Counselling",
-                description: "Consulting with expert mentors to secure seats based on your rank",
-                gradient: "linear-gradient(135deg, #FF9A9E, #FAD0C4)"
-              }
+                description:
+                  "Consulting with expert mentors to secure seats based on your rank",
+                gradient: "linear-gradient(135deg, #FF9A9E, #FAD0C4)",
+              },
             ].map((feature, index) => (
               <div className="col-lg-4 col-md-6" key={index}>
                 <motion.div
@@ -318,12 +323,12 @@ const Home = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.2 }}
                   viewport={{ once: true }}
-                  whileHover={{ 
+                  whileHover={{
                     y: -10,
-                    transition: { duration: 0.3 }
+                    transition: { duration: 0.3 },
                   }}
                 >
-                  <div 
+                  <div
                     className="icon-wrapper"
                     style={{ background: feature.gradient }}
                   >
@@ -342,19 +347,19 @@ const Home = () => {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             position: relative;
             overflow: hidden;
-            font-family: 'Poppins', sans-serif;
+            font-family: "Poppins", sans-serif;
           }
 
           .section-title {
             font-size: 2.5rem;
             font-weight: 700;
-            color:rgb(6, 20, 145);
+            color: rgb(6, 20, 145);
             margin-bottom: 3rem;
             position: relative;
           }
 
           .section-title::after {
-            content: '';
+            content: "";
             position: absolute;
             bottom: -10px;
             left: 50%;
@@ -378,7 +383,7 @@ const Home = () => {
           }
 
           .feature-card::before {
-            content: '';
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
@@ -411,7 +416,7 @@ const Home = () => {
 
           .feature-icon {
             font-size: 2.5rem;
-            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
           }
 
           .feature-title {
@@ -424,7 +429,7 @@ const Home = () => {
           }
 
           .feature-title::after {
-            content: '';
+            content: "";
             position: absolute;
             bottom: 0;
             left: 50%;
@@ -472,18 +477,15 @@ const Home = () => {
       </section>
 
       <div className="enquiry-button-container">
-        <button 
-          className="enquiry-button"
-          onClick={() => setShowEnquiry(true)}
-        >
+        <button className="enquiry-button" onClick={() => setShowEnquiry(true)}>
           <span>✉️ Quick Enquiry</span>
         </button>
       </div>
 
       {showEnquiry && (
         <div className="modal-overlay" onClick={() => setShowEnquiry(false)}>
-          <div className="modal-content" onClick={e => e.stopPropagation()}>
-            <button 
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button
               className="modal-close"
               onClick={() => setShowEnquiry(false)}
             >
@@ -495,32 +497,39 @@ const Home = () => {
       )}
 
       <style jsx>{`
+        // Replace the logo-related CSS styles with these:
+
         .logo-circle-container {
-          width: 300px;  /* Reduced size */
-          height: 300px;
-          border-radius: 50%;
+          width: 100px;
+          height: 100px;
+          border-radius: 70%;
           background: white;
-          padding: 10px;
+          padding: 15px;
           margin: 0 auto;
           display: flex;
           align-items: center;
           justify-content: center;
           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
           border: 1px solid rgba(255, 255, 255, 0.8);
+          position: relative;
           overflow: hidden;
         }
 
         .logo-image {
-          width: 295%;
-          height: 85%;
-          object-fit: contain;  /* This prevents cropping */
-          border-radius: 7%;
+          width: 100%;
+          height: 100%;
+          object-fit: contain; /* Changed from contain to cover */
+          border-radius: 50%;
+          object-position: center;
+          transition: transform 0.3s ease;
         }
 
+        /* Media Queries */
         @media (max-width: 768px) {
           .logo-circle-container {
-            width: 200px;
-            height: 250px;
+            width: 220px;
+            height: 220px;
+            padding: 12px;
             margin-top: 20px;
           }
         }
@@ -529,6 +538,7 @@ const Home = () => {
           .logo-circle-container {
             width: 180px;
             height: 180px;
+            padding: 10px;
           }
         }
 
@@ -540,7 +550,7 @@ const Home = () => {
         }
 
         .enquiry-button {
-          background: linear-gradient(135deg, #ff4d4d,rgb(255, 0, 0));
+          background: linear-gradient(135deg, #ff4d4d, rgb(255, 0, 0));
           color: white;
           border: none;
           padding: 15px 30px;
@@ -627,7 +637,7 @@ const Home = () => {
           }
         }
       `}</style>
-   </div>
+    </div>
   );
 };
 

@@ -20,15 +20,15 @@ const Navbar = () => {
         <div className="container">
           <Link className="navbar-brand d-flex align-items-center" to="/">
             <img
-              src="/logo.jpg"
+              src="/logo1.jpg"
               alt=""
               height="55"  // Increased from 40 to 55
               className="me-2 logo"
             />
             <div className="brand-content">
               <span className="fw-bold fs-2">
-                <span className="kalam-text">Kalam</span>{' '}
-                <span className="academy-text">Academy</span>
+                <span className="kalam-text">Foundation 2</span>{' '}
+                <span className="academy-text">Future</span>
               </span>
               <p className="tagline mb-0">Learn the habit of Learning</p>
             </div>
@@ -69,7 +69,7 @@ const Navbar = () => {
       <style jsx>{`
         .navbar {
           transition: all 0.3s ease;
-          background: linear-gradient(135deg,rgb(238, 240, 243) 0%,rgb(29, 29, 175) 100%) !important; // New gradient background
+          background: linear-gradient(135deg,rgb(29, 23, 198) 0%,rgb(53, 53, 161) 100%) !important; // New gradient background
         padding: 0.8rem 1rem; /* Increased padding for height */
         min-height: 100px; 
           }
@@ -125,7 +125,7 @@ const Navbar = () => {
         }
 
         .kalam-text {
-          color:rgb(27, 55, 147); /* Dark blue */
+          color:rgb(230, 233, 240); /* Dark blue */
           text-shadow: 1px 1px 2px rgba(26, 35, 126, 0.2);
           transition: all 0.3s ease;
         }

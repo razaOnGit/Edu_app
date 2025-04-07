@@ -26,7 +26,7 @@ const Foundation = () => {
       icon: faSchool,
       subjects: {
         "Core": ["Mathematics", "Science", "English", "Hindi/Urdu"],
-        "Additional": ["Social Studies", "Computer Basics", "Islamic Studies", "Moral Education"]
+        "Additional": ["Social Studies", "Computer Basics", " Studies", "Moral Education"]
       }
     },
     {

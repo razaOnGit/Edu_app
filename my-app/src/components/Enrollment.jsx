@@ -1,59 +1,74 @@
-import React, { useState } from 'react';
-import { Modal, Form, Button, Row, Col, ProgressBar, Alert, Image } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faUser, faEnvelope, faPhone, faCalendar, 
-  faSchool, faIdCard, faQrcode, faMobileAlt,
-  faCreditCard
-} from '@fortawesome/free-solid-svg-icons';
+import React, { useState } from "react";
+import {
+  Modal,
+  Form,
+  Button,
+  Row,
+  Col,
+  ProgressBar,
+  Alert,
+  Image,
+} from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUser,
+  faEnvelope,
+  faPhone,
+  faCalendar,
+  faSchool,
+  faIdCard,
+  faQrcode,
+  faMobileAlt,
+  faCreditCard,
+} from "@fortawesome/free-solid-svg-icons";
 
 const EnrollmentForm = ({ show, handleClose, program }) => {
   // Form state management
   const [step, setStep] = useState(1);
-  const [paymentMethod, setPaymentMethod] = useState('qr_code'); // Default to QR code
-  const [upiId, setUpiId] = useState('');
+  const [paymentMethod, setPaymentMethod] = useState("qr_code"); // Default to QR code
+  const [upiId, setUpiId] = useState("");
   const [isVerified, setIsVerified] = useState(false);
 
   // Form data state
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    dob: '',
-    parentName: '',
-    parentContact: '',
-    address: '',
-    educationLevel: '',
-    preferredSchedule: '',
-    agreeTerms: false
+    fullName: "",
+    email: "",
+    phone: "",
+    dob: "",
+    parentName: "",
+    parentContact: "",
+    address: "",
+    educationLevel: "",
+    preferredSchedule: "",
+    agreeTerms: false,
   });
 
   // Reset form completely when modal closes
   const resetForm = () => {
     setStep(1);
-    setPaymentMethod('qr_code');
-    setUpiId('');
+    setPaymentMethod("qr_code");
+    setUpiId("");
     setIsVerified(false);
     setFormData({
-      fullName: '',
-      email: '',
-      phone: '',
-      dob: '',
-      parentName: '',
-      parentContact: '',
-      address: '',
-      educationLevel: '',
-      preferredSchedule: '',
-      agreeTerms: false
+      fullName: "",
+      email: "",
+      phone: "",
+      dob: "",
+      parentName: "",
+      parentContact: "",
+      address: "",
+      educationLevel: "",
+      preferredSchedule: "",
+      agreeTerms: false,
     });
   };
 
   // Handle form field changes
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value
+      [name]: type === "checkbox" ? checked : value,
     }));
   };
 
@@ -64,7 +79,7 @@ const EnrollmentForm = ({ show, handleClose, program }) => {
   // Verify UPI ID (mock implementation)
   const verifyUpiId = () => {
     // In a real app, you would validate the UPI ID format
-    if (upiId.includes('@')) {
+    if (upiId.includes("@")) {
       setIsVerified(true);
       return true;
     }
@@ -75,9 +90,9 @@ const EnrollmentForm = ({ show, handleClose, program }) => {
   // Form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     // Validate UPI ID if that payment method is selected
-    if (paymentMethod === 'upi' && !verifyUpiId()) {
+    if (paymentMethod === "upi" && !verifyUpiId()) {
       return;
     }
 
@@ -85,32 +100,36 @@ const EnrollmentForm = ({ show, handleClose, program }) => {
     const submissionData = {
       ...formData,
       paymentMethod,
-      upiId: paymentMethod === 'upi' ? upiId : null
+      upiId: paymentMethod === "upi" ? upiId : null,
     };
 
     // Handle form submission (API call, etc.)
-    console.log('Form submitted:', submissionData);
+    console.log("Form submitted:", submissionData);
     handleClose();
     // Here you would typically show a success message
   };
 
   return (
-    <Modal 
-      show={show} 
-      onHide={handleClose} 
+    <Modal
+      show={show}
+      onHide={handleClose}
       onExited={resetForm}
-      size="lg" 
-      centered 
+      size="lg"
+      centered
       backdrop="static"
       className="enrollment-modal"
     >
       <Modal.Header closeButton className="border-0 pb-0">
         <Modal.Title className="w-100 text-center">
-          <h3 className="fw-bold mb-0">Enroll in {program}</h3>
-          <ProgressBar now={(step / 3) * 100} className="mt-3" style={{ height: '6px' }} />
+          <h3 className="fw-bold mb-0">Enroll In Target Course {program}</h3>
+          <ProgressBar
+            now={(step / 3) * 100}
+            className="mt-3"
+            style={{ height: "6px" }}
+          />
         </Modal.Title>
       </Modal.Header>
-      
+
       <Modal.Body className="pt-0">
         <Form onSubmit={handleSubmit}>
           {/* Step 1: Personal Information */}
@@ -120,7 +139,7 @@ const EnrollmentForm = ({ show, handleClose, program }) => {
                 <FontAwesomeIcon icon={faUser} className="me-2" />
                 Personal Information
               </h5>
-              
+
               <Row className="g-3">
                 <Col md={6}>
                   <Form.Group controlId="fullName">
@@ -135,21 +154,21 @@ const EnrollmentForm = ({ show, handleClose, program }) => {
                     />
                   </Form.Group>
                 </Col>
-                
+
                 <Col md={6}>
                   <Form.Group controlId="email">
                     <Form.Label>Address</Form.Label>
                     <Form.Control
-                      type=" "
-                      name=" "
+                      type="email"
+                      name="email"
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      placeholder="123, street, city"
+                      placeholder="123, street , city, state"
                     />
                   </Form.Group>
                 </Col>
-                
+
                 <Col md={6}>
                   <Form.Group controlId="phone">
                     <Form.Label>Phone Number</Form.Label>
@@ -164,7 +183,7 @@ const EnrollmentForm = ({ show, handleClose, program }) => {
                     />
                   </Form.Group>
                 </Col>
-                
+
                 <Col md={6}>
                   <Form.Group controlId="dob">
                     <Form.Label>Date of Birth</Form.Label>
@@ -174,14 +193,14 @@ const EnrollmentForm = ({ show, handleClose, program }) => {
                       value={formData.dob}
                       onChange={handleChange}
                       required
-                      max={new Date().toISOString().split('T')[0]}
+                      max={new Date().toISOString().split("T")[0]}
                     />
                   </Form.Group>
                 </Col>
               </Row>
             </div>
           )}
-          
+
           {/* Step 2: Educational Details */}
           {step === 2 && (
             <div className="animate-slide-in">
@@ -189,7 +208,7 @@ const EnrollmentForm = ({ show, handleClose, program }) => {
                 <FontAwesomeIcon icon={faSchool} className="me-2" />
                 Educational Details
               </h5>
-              
+
               <Row className="g-3">
                 <Col md={6}>
                   <Form.Group controlId="educationLevel">
@@ -203,12 +222,31 @@ const EnrollmentForm = ({ show, handleClose, program }) => {
                       <option value="">Select your level</option>
                       <option value="primary">Primary (5-8)</option>
                       <option value="secondary">Secondary (9-10)</option>
-                      <option value="higher_secondary">Higher Secondary (11-12)</option>
+                      <option value="higher_secondary">
+                        Higher Secondary (11-12)
+                      </option>
                       <option value="other">Other</option>
                     </Form.Select>
                   </Form.Group>
                 </Col>
-                
+                <Col md={6}>
+                  <Form.Group controlId="courseSelection">
+                    <Form.Label>Choose Your Course</Form.Label>
+                    <Form.Select
+                      name="selectedCourse"
+                      value={formData.selectedCourse}
+                      onChange={handleChange}
+                      required
+                    >
+                      <option value="">Select a course</option>
+                      <option value="math_foundation">CLASS V</option>
+                      <option value="science_explorer">CLASS IX</option>
+                      <option value="future_skills">CLASS XI </option>
+        
+                    </Form.Select>
+                  </Form.Group>
+                </Col>
+
                 <Col md={6}>
                   <Form.Group controlId="preferredSchedule">
                     <Form.Label>Preferred Schedule</Form.Label>
@@ -226,7 +264,7 @@ const EnrollmentForm = ({ show, handleClose, program }) => {
                     </Form.Select>
                   </Form.Group>
                 </Col>
-                
+
                 <Col md={12}>
                   <Form.Group controlId="previousSchool">
                     <Form.Label>Previous School/College</Form.Label>
@@ -243,7 +281,7 @@ const EnrollmentForm = ({ show, handleClose, program }) => {
               </Row>
             </div>
           )}
-          
+
           {/* Step 3: Payment & Confirmation */}
           {step === 3 && (
             <div className="animate-slide-in">
@@ -251,39 +289,54 @@ const EnrollmentForm = ({ show, handleClose, program }) => {
                 <FontAwesomeIcon icon={faIdCard} className="me-2" />
                 Payment & Confirmation
               </h5>
-              
+
               <Alert variant="info" className="mb-4">
-                <strong>Program Fee:</strong> ₹8,500 per month<br />
-                <small>First month payment required to confirm enrollment</small>
+                <strong>Program Fee:</strong> ₹8,500 per month
+                <br />
+                <small>
+                  First month payment required to confirm enrollment
+                </small>
               </Alert>
-              
+
               <Row className="g-3">
                 <Col md={12}>
                   <Form.Group controlId="paymentMethod">
                     <Form.Label>Payment Method</Form.Label>
                     <div className="payment-options">
                       <Button
-                        variant={paymentMethod === 'qr_code' ? 'primary' : 'outline-primary'}
+                        variant={
+                          paymentMethod === "qr_code"
+                            ? "primary"
+                            : "outline-primary"
+                        }
                         className="payment-option"
-                        onClick={() => setPaymentMethod('qr_code')}
+                        onClick={() => setPaymentMethod("qr_code")}
                       >
                         <FontAwesomeIcon icon={faQrcode} className="me-2" />
                         Pay via QR Code
                       </Button>
-                      
+
                       <Button
-                        variant={paymentMethod === 'upi' ? 'primary' : 'outline-primary'}
+                        variant={
+                          paymentMethod === "upi"
+                            ? "primary"
+                            : "outline-primary"
+                        }
                         className="payment-option"
-                        onClick={() => setPaymentMethod('upi')}
+                        onClick={() => setPaymentMethod("upi")}
                       >
                         <FontAwesomeIcon icon={faMobileAlt} className="me-2" />
                         UPI Payment
                       </Button>
-                      
+
                       <Button
-                        variant={paymentMethod === 'credit_card' ? 'primary' : 'outline-primary'}
+                        variant={
+                          paymentMethod === "credit_card"
+                            ? "primary"
+                            : "outline-primary"
+                        }
                         className="payment-option"
-                        onClick={() => setPaymentMethod('credit_card')}
+                        onClick={() => setPaymentMethod("credit_card")}
                       >
                         <FontAwesomeIcon icon={faCreditCard} className="me-2" />
                         Credit Card
@@ -291,9 +344,9 @@ const EnrollmentForm = ({ show, handleClose, program }) => {
                     </div>
                   </Form.Group>
                 </Col>
-                
+
                 {/* QR Code Payment */}
-                {paymentMethod === 'qr_code' && (
+                {paymentMethod === "qr_code" && (
                   <Col md={12} className="text-center">
                     <div className="qr-container p-4">
                       <Image
@@ -311,9 +364,9 @@ const EnrollmentForm = ({ show, handleClose, program }) => {
                     </div>
                   </Col>
                 )}
-                
+
                 {/* UPI Payment */}
-                {paymentMethod === 'upi' && (
+                {paymentMethod === "upi" && (
                   <Col md={12}>
                     <Form.Group controlId="upiId">
                       <Form.Label>Enter UPI ID</Form.Label>
@@ -329,12 +382,12 @@ const EnrollmentForm = ({ show, handleClose, program }) => {
                           required
                           className="me-2"
                         />
-                        <Button 
-                          variant={isVerified ? 'success' : 'primary'}
+                        <Button
+                          variant={isVerified ? "success" : "primary"}
                           onClick={verifyUpiId}
-                          disabled={!upiId.includes('@')}
+                          disabled={!upiId.includes("@")}
                         >
-                          {isVerified ? 'Verified' : 'Verify'}
+                          {isVerified ? "Verified" : "Verify"}
                         </Button>
                       </div>
                       {isVerified && (
@@ -345,10 +398,10 @@ const EnrollmentForm = ({ show, handleClose, program }) => {
                     </Form.Group>
                   </Col>
                 )}
-                
+
                 {/* Credit Card Payment */}
 
-                {paymentMethod === 'credit_card' && (
+                {paymentMethod === "credit_card" && (
                   <>
                     <Col md={12}>
                       <Form.Group controlId="cardNumber">
@@ -395,15 +448,30 @@ const EnrollmentForm = ({ show, handleClose, program }) => {
                     </Col>
                   </>
                 )}
-                
+
                 <Col md={12}>
                   <Form.Group controlId="agreeTerms" className="mt-3">
                     <Form.Check
                       type="checkbox"
                       label={
                         <>
-                          I agree to the <a href="/terms" target="_blank" rel="noopener noreferrer">Terms & Conditions</a> and 
-                          <a href="/privacy" target="_blank" rel="noopener noreferrer"> Privacy Policy</a>
+                          I agree to the{" "}
+                          <a
+                            href="/terms"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Terms & Conditions
+                          </a>{" "}
+                          and
+                          <a
+                            href="/privacy"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {" "}
+                            Privacy Policy
+                          </a>
                         </>
                       }
                       name="agreeTerms"
@@ -416,7 +484,7 @@ const EnrollmentForm = ({ show, handleClose, program }) => {
               </Row>
             </div>
           )}
-          
+
           <div className="d-flex justify-content-between mt-4">
             {step > 1 ? (
               <Button variant="outline-secondary" onClick={prevStep}>
@@ -425,16 +493,16 @@ const EnrollmentForm = ({ show, handleClose, program }) => {
             ) : (
               <div></div>
             )}
-            
+
             {step < 3 ? (
               <Button variant="primary" onClick={nextStep}>
                 Continue
               </Button>
             ) : (
-              <Button 
-                variant="success" 
+              <Button
+                variant="success"
                 type="submit"
-                disabled={paymentMethod === 'upi' && !isVerified}
+                disabled={paymentMethod === "upi" && !isVerified}
               >
                 Complete Enrollment
               </Button>

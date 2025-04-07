@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Tab, Nav, Card, Button, Row, Col, Table } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faDownload, faTrophy, faBook, faGraduationCap, 
   faAtom, faPalette, faCalculator, faCog, faInfoCircle
 } from '@fortawesome/free-solid-svg-icons';
+import Enrollment from '../components/Enrollment';
 
 const Target = () => {
   const universities = [
@@ -194,6 +195,16 @@ const Target = () => {
     }
   ];
 
+  const [showEnrollment, setShowEnrollment] = useState(false);
+  const [selectedUniversity, setSelectedUniversity] = useState('');
+  const [selectedClass, setSelectedClass] = useState('');
+
+  const handleEnrollClick = (university, className) => {
+    setSelectedUniversity(university);
+    setSelectedClass(className);
+    setShowEnrollment(true);
+  };
+
   return (
     <div className="target-page py-5">
       <div className="container">
@@ -245,7 +256,11 @@ const Target = () => {
                             <FontAwesomeIcon icon={faInfoCircle} className="me-2" />
                             Check subjects and syllabus in University tab before enrolling
                           </p>
-                          <Button variant="primary" className="enroll-btn">
+                          <Button 
+                            variant="primary" 
+                            className="enroll-btn"
+                            onClick={() => handleEnrollClick("AMU", "Class VI")}
+                          >
                             Enroll Now
                           </Button>
                         </div>
@@ -259,7 +274,11 @@ const Target = () => {
                             <FontAwesomeIcon icon={faInfoCircle} className="me-2" />
                             Check subjects and syllabus in University tab before enrolling
                           </p>
-                          <Button variant="primary" className="enroll-btn">
+                          <Button 
+                            variant="primary" 
+                            className="enroll-btn"
+                            onClick={() => handleEnrollClick("AMU", "Class IX")}
+                          >
                             Enroll Now
                           </Button>
                         </div>
@@ -273,7 +292,11 @@ const Target = () => {
                             <FontAwesomeIcon icon={faInfoCircle} className="me-2" />
                             Check subjects and syllabus in University tab before enrolling
                           </p>
-                          <Button variant="primary" className="enroll-btn">
+                          <Button 
+                            variant="primary" 
+                            className="enroll-btn"
+                            onClick={() => handleEnrollClick("AMU", "Class XI - Science/Diploma Engineering")}
+                          >
                             Enroll Now
                           </Button>
                         </div>
@@ -297,7 +320,11 @@ const Target = () => {
                             <FontAwesomeIcon icon={faInfoCircle} className="me-2" />
                             Check JMI subjects and syllabus in University tab before enrolling
                           </p>
-                          <Button variant="primary" className="enroll-btn">
+                          <Button 
+                            variant="primary" 
+                            className="enroll-btn"
+                            onClick={() => handleEnrollClick("JMI", "Class VI")}
+                          >
                             Enroll Now
                           </Button>
                         </div>
@@ -311,7 +338,11 @@ const Target = () => {
                             <FontAwesomeIcon icon={faInfoCircle} className="me-2" />
                             Check subjects and syllabus in University tab before enrolling
                           </p>
-                          <Button variant="primary" className="enroll-btn">
+                          <Button 
+                            variant="primary" 
+                            className="enroll-btn"
+                            onClick={() => handleEnrollClick("JMI", "Class IX")}
+                          >
                             Enroll Now
                           </Button>
                         </div>
@@ -325,7 +356,11 @@ const Target = () => {
                             <FontAwesomeIcon icon={faInfoCircle} className="me-2" />
                             Check subjects and syllabus in University tab before enrolling
                           </p>
-                          <Button variant="primary" className="enroll-btn">
+                          <Button 
+                            variant="primary" 
+                            className="enroll-btn"
+                            onClick={() => handleEnrollClick("JMI", "Class XI - Science/Humanities")}
+                          >
                             Enroll Now
                           </Button>
                         </div>
@@ -349,7 +384,11 @@ const Target = () => {
                             <FontAwesomeIcon icon={faInfoCircle} className="me-2" />
                             Check subjects and syllabus in University tab before enrolling
                           </p>
-                          <Button variant="primary" className="enroll-btn">
+                          <Button 
+                            variant="primary" 
+                            className="enroll-btn"
+                            onClick={() => handleEnrollClick("BHU", "Class VI")}
+                          >
                             Enroll Now
                           </Button>
                         </div>
@@ -363,7 +402,11 @@ const Target = () => {
                             <FontAwesomeIcon icon={faInfoCircle} className="me-2" />
                             Check subjects and syllabus in University tab before enrolling
                           </p>
-                          <Button variant="primary" className="enroll-btn">
+                          <Button 
+                            variant="primary" 
+                            className="enroll-btn"
+                            onClick={() => handleEnrollClick("BHU", "Class IX")}
+                          >
                             Enroll Now
                           </Button>
                         </div>
@@ -377,7 +420,11 @@ const Target = () => {
                             <FontAwesomeIcon icon={faInfoCircle} className="me-2" />
                             Check subjects and syllabus in University tab before enrolling
                           </p>
-                          <Button variant="primary" className="enroll-btn">
+                          <Button 
+                            variant="primary" 
+                            className="enroll-btn"
+                            onClick={() => handleEnrollClick("BHU", "Class XI - Science")}
+                          >
                             Enroll Now
                           </Button>
                         </div>
@@ -412,7 +459,11 @@ const Target = () => {
                       <Col md={4} className="mb-4">
                         <div className="commerce-option">
                           <h5>AMU Commerce</h5>
-                          <Button variant="outline-primary" className="w-100 enroll-btn">
+                          <Button 
+                            variant="outline-primary" 
+                            className="w-100 enroll-btn"
+                            onClick={() => handleEnrollClick("AMU", "Class XI - Commerce")}
+                          >
                             Enroll Now
                           </Button>
                         </div>
@@ -422,7 +473,11 @@ const Target = () => {
                       <Col md={4} className="mb-4">
                         <div className="commerce-option">
                           <h5>JMI Commerce</h5>
-                          <Button variant="outline-primary" className="w-100 enroll-btn">
+                          <Button 
+                            variant="outline-primary" 
+                            className="w-100 enroll-btn"
+                            onClick={() => handleEnrollClick("JMI", "Class XI - Commerce")}
+                          >
                             Enroll Now
                           </Button>
                         </div>
@@ -432,7 +487,11 @@ const Target = () => {
                       <Col md={4} className="mb-4">
                         <div className="commerce-option">
                           <h5>BHU Commerce</h5>
-                          <Button variant="outline-primary" className="w-100 enroll-btn">
+                          <Button 
+                            variant="outline-primary" 
+                            className="w-100 enroll-btn"
+                            onClick={() => handleEnrollClick("BHU", "Class XI - Commerce")}
+                          >
                             Enroll Now
                           </Button>
                         </div>
@@ -520,6 +579,13 @@ const Target = () => {
           </Tab.Content>
         </Tab.Container>
       </div>
+
+      <Enrollment 
+        show={showEnrollment}
+        handleClose={() => setShowEnrollment(false)}
+        selectedUniversity={selectedUniversity}
+        selectedClass={selectedClass}
+      />
 
       <style jsx>{`
         .target-page { 

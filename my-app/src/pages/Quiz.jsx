@@ -51,7 +51,7 @@ const Quiz = () => {
             <h1 className="main-title">
               <TypeAnimation
                 sequence={[
-                  'Annual Islamic Quiz',
+                  'Annual  Quiz',
                   1000,
                   'Test Your Knowledge',
                   1000,
@@ -70,7 +70,7 @@ const Quiz = () => {
 
       <div className="content-section py-5">
         <Container>
-          <h1 className="text-center mb-5">Annual Islamic Quiz Competition</h1>
+          <h1 className="text-center mb-5">Annual  Quiz Competition</h1>
 
           <Tab.Container defaultActiveKey="info">
             <Nav variant="pills" className="justify-content-center mb-4">

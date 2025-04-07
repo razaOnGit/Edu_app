@@ -15,7 +15,7 @@ const CarouselSlider = () => {
     },
     {
       image: "/images/slide3.png",
-      // title: "Islamic Values",
+      // title: " Values",
       // description: "Building character with strong moral foundations"
     },
     {

@@ -22,16 +22,16 @@ const Footer = () => {
             {/* Logo and About */}
             <div className="col-lg-4 col-md-6">
               <Link to="/" className="text-decoration-none">
-                <h4 className="academy-title">Kalam Academy</h4>
+                <h4 className="academy-title">F2F Academy</h4>
                 <p className="slogan">Learn the habit of Learning</p>
               </Link>
-              <p className="founder-label">Kumail Akhtar</p>
+              <p className="founder-label">Md Raza Khan</p>
               <p className="founder-name">Founder & CEO</p>
               <p className="mission-text">
-                Empowering minds through quality education and Islamic knowledge.
+                Empowering minds through quality education and  knowledge.
               </p>
               <div className="social-links">
-                <a href="https://wa.me/+91 7667643486" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/+91 9876543210" target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon icon={faWhatsapp} />
                 </a>
                 <a href=" " target="_blank" rel="noopener noreferrer">
@@ -49,7 +49,7 @@ const Footer = () => {
               <ul className="footer-links">
                 <li><Link to="/foundation">Foundation Course</Link></li>
                 <li><Link to="/target">Target Batch</Link></li>
-                <li><Link to="/quiz">Islamic Quiz</Link></li>
+                <li><Link to="/quiz">Quiz</Link></li>
                 <li><Link to="/achievements">Achievements</Link></li>
                 <li><Link to="/target">University syllabus</Link></li>
               </ul>
@@ -61,14 +61,14 @@ const Footer = () => {
               <ul className="contact-info">
                 <li>
                   <FontAwesomeIcon icon={faEnvelope} />
-                  <a href="mailto:kumailakhtar0786@gmail.com">
-                    kumailakhtar0786@gmail.com
+                  <a href="mailto:gmail@.com">
+                    kmdraza47@gmail.com
                   </a>
                 </li>
                 <li>
                   <FontAwesomeIcon icon={faPhone} />
-                  <a href="tel:+917667643486">
-                    +91 7667643486
+                  <a href="tel:+91 987654123">
+                    +91 9874561230
                   </a>
                 </li>
                 <li>
@@ -84,7 +84,7 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="container">
           <p className="copyright">
-            © {new Date().getFullYear()} Kalam Academy. All rights reserved. | 
+            © {new Date().getFullYear()} F2F Academy. All rights reserved. | 
             <span className="highlight-text"> Controlled </span> & 
             <span className="highlight-text"> Designed </span> by{' '}
             <a 
