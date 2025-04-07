@@ -34,10 +34,10 @@ const Footer = () => {
                 <a href="https://wa.me/+91 9876543210" target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon icon={faWhatsapp} />
                 </a>
-                <a href=" " target="_blank" rel="noopener noreferrer">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon icon={faFacebookF} />
                 </a>
-                <a href=" " target="_blank" rel="noopener noreferrer">
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon icon={faYoutube} />
                 </a>
               </div>

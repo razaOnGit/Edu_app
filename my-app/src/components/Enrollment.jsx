@@ -242,6 +242,7 @@ const EnrollmentForm = ({ show, handleClose, program }) => {
                       <option value="math_foundation">CLASS V</option>
                       <option value="science_explorer">CLASS IX</option>
                       <option value="future_skills">CLASS XI </option>
+                      <option value="future_skills">COMMERCE (XI) </option>
         
                     </Form.Select>
                   </Form.Group>
