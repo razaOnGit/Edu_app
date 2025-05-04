@@ -6,11 +6,11 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 const CarouselSlider = () => {
   const carouselItems = [
     {
-      image: "/images/slide1.png",
+      image: "/slider1.png",
       
     },
     {
-      image: "/images/slide2.png",
+      image: "/slider2.png",
       
     },
     {
